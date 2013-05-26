@@ -61,7 +61,7 @@ public class MiniMax {
     }
 
     private boolean isMyTurn(InformedState state) {
-        return enviroment.isIsTurnOf(state);
+        return enviroment.isTurnOf(state);
     }
 
     private double executeMaxTurn(InformedState state, int maxDepth, double alpha, double beta) {
