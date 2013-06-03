@@ -56,6 +56,7 @@ public class MiniMax {
     }
 
     private double minimax(InformedState state, int maxDepth, double alpha, double beta) {
+        expandedStates++;
         if (maxDepth <= 0 || isTerminalState(state))
             return heuristic.evaluate(state);
         if (isMyTurn(state))
@@ -74,7 +75,6 @@ public class MiniMax {
 
     private double executeMaxTurn(InformedState state, int maxDepth, double alpha, double beta) {
         for (InformedState child : getChilds(state)) {
-            expandedStates++;
             alpha = Math.max(alpha, minimax(child, maxDepth - 1, alpha, beta));
             if (alpha >= beta) return beta;
         }
